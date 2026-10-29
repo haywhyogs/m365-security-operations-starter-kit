@@ -1,3 +1,17 @@
+# --- Challenge lab artifacts (never publish) ---
+# Contains tenant identifiers and live assessment evidence.
+hardening-results.txt
+*snapshot*.json
+C:\SecureM365Snapshots\
+
+# Course transcripts and source material (copyrighted, not our work)
+transcript*.pdf
+*.docx
+
+# Session/tooling state
+.commandcode/
+
+# --- Python ---
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
