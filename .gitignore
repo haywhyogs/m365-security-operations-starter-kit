@@ -1,5 +1,4 @@
-# Live lab evidence — contains tenant identifiers, never publish
-hardening-results.txt
+# Lab snapshot exports (the assessment TXT is published as challenge evidence)
 *snapshot*.json
 
 # Course source material — not our work to redistribute
