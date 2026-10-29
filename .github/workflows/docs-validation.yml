@@ -1,0 +1,27 @@
+name: Documentation Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-docs:
+    name: Validate documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check required documentation
+        run: |
+          test -s README.md
+          test -s docs/control-matrix.md
+          test -s docs/rollout-plan.md
+          test -s docs/validation-checklist.md
+          echo "All required documentation files exist and are non-empty."
