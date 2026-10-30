@@ -11,6 +11,19 @@ effort, and the ability of a small IT team to maintain each control.
 These are proposed priorities for the scenario, not a claim that the
 organization has already implemented or tested them.
 
+## Prerequisite: Emergency Access Accounts
+
+Before any control in this matrix is enforced, the organization maintains
+**two cloud-only emergency access ("break-glass") accounts** with permanent
+Global Administrator rights, excluded from every Conditional Access policy,
+protected by an authentication method independent of the systems being
+changed, and alerted on every sign-in.
+
+This is not a sixth recommendation; it is what makes the other five safely
+reversible. A Conditional Access mistake can block every administrator in
+the tenant. Without an excluded recovery account, the rollback for a failed
+security policy is a support request to Microsoft.
+
 ## Ranked Recommendations
 
 ### 1. Enforce Multifactor Authentication (MFA)
@@ -27,6 +40,15 @@ files, administrative portals, and other organizational resources.
   for administrators where supported.
 - Pilot the policy, review sign-in results, and then expand enforcement.
 - Establish and test account recovery procedures before broad enforcement.
+
+**Stronger for administrators means phishing-resistant.** Not every MFA
+method resists phishing: SMS codes, voice calls, and push approvals can be
+relayed to an attacker in real time. Phishing-resistant methods — passkeys
+(FIDO2), Windows Hello for Business, and certificate-based authentication —
+bind the credential to the legitimate service cryptographically, so a fake
+sign-in page cannot harvest them. A two-administrator business should
+require these methods for both admins and enforce them with a dedicated
+Conditional Access policy targeting administrative directory roles.
 
 **Validation evidence:**
 - Review the effective Conditional Access policy and its assignments.
@@ -72,6 +94,16 @@ require additional verification or remediation.
 
 **Why this ranks third:** Risk signals can help the organization respond
 to suspicious activity rather than treating every sign-in identically.
+
+**Two different signals.** *Sign-in risk* evaluates an individual
+authentication attempt — impossible travel, atypical location, anonymizing
+proxy — and answers "should this login proceed?". *User risk* evaluates the
+account itself — its credentials appeared in a breach corpus — and answers
+"has this identity likely already been compromised?". The first is
+addressed by challenging the sign-in with MFA; the second is addressed by
+forcing remediation (password change, or automatic risk remediation). A
+small team must know which signal they are responding to, because the
+responses differ.
 
 **Implementation approach:**
 - Review available identity risk signals and current policies.
@@ -147,6 +179,24 @@ and reviewed.
 
 **Operational owner:** IT administrators, with business meeting organizers
 responsible for day-to-day use.
+
+## Quick Win: Self-Service Password Reset (SSPR)
+
+Not ranked in the top five, because it reduces operational load more than
+security risk — but for two administrators supporting 100 users, it is the
+highest-leverage addition to the plan.
+
+- Enable SSPR for all users with a sensible method policy (for example,
+  two methods, including at least one not tied to the phone an attacker
+  could SIM-swap).
+- Require users to register before enforcement is announced.
+- Secure the recovery process itself: SSPR is an authentication surface, and
+  weak registration methods turn password reset into an account takeover
+  path.
+- Test the full recovery flow with a pilot user before enabling it broadly.
+
+**Tradeoff:** registration campaigns create support tickets once, and then
+reduce the standing password-reset workload permanently.
 
 ## Rollout Principles
 

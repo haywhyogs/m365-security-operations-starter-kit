@@ -26,10 +26,12 @@ This project explores how a business with 100 users, two administrators, and Mic
 | 4 | Restrict user consent to applications | Malicious or overprivileged applications accessing organizational data |
 | 5 | Secure Microsoft Teams meetings | Unauthorized access to meetings, presentations, and business discussions |
 
+Two items sit outside the ranking: **emergency access accounts** are a prerequisite that makes every control above safely reversible, and **self-service password reset** is a quick win that reduces help-desk load for a two-person team. Both are documented in the control matrix.
+
 ## Engineering Approach
 
 
-For each recommendation, the playbook will document:
+For each recommendation, the playbook documents:
 
 1. **Risk:** What could go wrong, and why does it matter?
 2. **Implementation:** How can a small IT team deploy the control safely?
@@ -44,13 +46,15 @@ The proposed workflow follows a prepare, pilot, enforce, validate, and review cy
 - `docs/control-matrix.md` — Ranked controls, risks, rationale, and tradeoffs.
 - `docs/rollout-plan.md` — Phased implementation plan for a two-administrator team.
 - `docs/validation-checklist.md` — Validation steps and expected evidence.
-- `.github/workflows/docs-check.yml` — Automated documentation checks.
+- `docs/evidence-and-limitations.md` — Evidence standard and honest reporting rules.
+- `.github/workflows/docs-validation.yml` — Automated documentation checks.
+- `hardening-results.txt` — Phase 1 assessment output from the challenge lab tenant (10 of 10 controls implemented).
 
 ## Project Scope
 
 This repository is a security planning and validation framework. It does not deploy changes to a Microsoft 365 tenant, and its documentation checks do not independently verify tenant security.
 
-Any validation results will be distinguished from proposed tests and recommendations. No credentials, tenant secrets, or raw lab assessment artifacts belong in this public repository.
+`hardening-results.txt` is the unmodified assessment output from the challenge's disposable Skillable lab tenant. It is included as evidence that the ten required controls were implemented and validated in Phase 1. Any validation results are distinguished from proposed tests and recommendations. No credentials, tenant secrets, or production data belong in this repository.
 
 ## Background
 
