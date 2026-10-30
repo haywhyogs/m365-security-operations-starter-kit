@@ -46,7 +46,7 @@ The proposed workflow follows a prepare, pilot, enforce, validate, and review cy
 - `docs/control-matrix.md` — Ranked controls, risks, rationale, and tradeoffs.
 - `docs/rollout-plan.md` — Phased implementation plan for a two-administrator team.
 - `docs/validation-checklist.md` — Validation steps and expected evidence.
-- `docs/evidence-and-limitations.md` — Evidence standard and honest reporting rules.
+- `docs/evidence-and-limitations.md` — Evidence standard and reporting rules.
 - `.github/workflows/docs-validation.yml` — Automated documentation checks.
 - `hardening-results.txt` — Phase 1 assessment output from the challenge lab tenant (10 of 10 controls implemented).
 
@@ -54,7 +54,7 @@ The proposed workflow follows a prepare, pilot, enforce, validate, and review cy
 
 This repository is a security planning and validation framework. It does not deploy changes to a Microsoft 365 tenant, and its documentation checks do not independently verify tenant security.
 
-`hardening-results.txt` is the unmodified assessment output from the challenge's disposable Skillable lab tenant. It is included as evidence that the ten required controls were implemented and validated in Phase 1. Any validation results are distinguished from proposed tests and recommendations. No credentials, tenant secrets, or production data belong in this repository.
+`hardening-results.txt` is the unmodified assessment output from the challenge's disposable Skillable lab tenant. It is included as evidence that the ten required controls were implemented and validated in Phase 1. 
 
 ## Background
 
@@ -62,4 +62,4 @@ This project was developed as part of Microsoft's Defend the Tenant Challenge. P
 
 ## Intended Outcome
 
-A concise, reusable resource that helps a small IT team make informed security decisions, implement controls responsibly, and verify outcomes rather than relying on configuration assumptions alone.
+A concise, reusable resource that helps a small IT team make informed security decisions, implement controls responsibly, and verify outcomes.

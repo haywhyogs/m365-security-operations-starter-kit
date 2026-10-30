@@ -8,9 +8,6 @@ two administrators, and Microsoft 365 E7 licenses.
 The ranking considers risk reduction, likely business impact, implementation
 effort, and the ability of a small IT team to maintain each control.
 
-These are proposed priorities for the scenario, not a claim that the
-organization has already implemented or tested them.
-
 ## Prerequisite: Emergency Access Accounts
 
 Before any control in this matrix is enforced, the organization maintains
@@ -19,7 +16,7 @@ Global Administrator rights, excluded from every Conditional Access policy,
 protected by an authentication method independent of the systems being
 changed, and alerted on every sign-in.
 
-This is not a sixth recommendation; it is what makes the other five safely
+This is what makes the other five safely
 reversible. A Conditional Access mistake can block every administrator in
 the tenant. Without an excluded recovery account, the rollback for a failed
 security policy is a support request to Microsoft.

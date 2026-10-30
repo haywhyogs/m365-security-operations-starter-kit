@@ -1,6 +1,8 @@
 # Lab snapshot exports (the assessment TXT is published as challenge evidence)
 *snapshot*.json
 
+hardening-results.txt
+
 # Course source material — not our work to redistribute
 transcript*.pdf
 *.docx
